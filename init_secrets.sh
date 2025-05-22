@@ -8,6 +8,7 @@ if [ ! -f secrets.h ]; then
         echo '// secrets.h' > secrets.h
         echo '#define STASSID "yourSSID"' >> secrets.h
         echo '#define STAPSK "yourPassword"' >> secrets.h
+        echo '#define HIDDEN  true"' >> secrets.h
         echo "⚠️ secrets.example.h not found, created blank secrets.h"
     fi
 else

@@ -13,12 +13,6 @@
 
 #include "secrets.h"
 
-#ifndef STASSID
-#define STASSID "myId"
-#define STAPSK  "myPassword"
-#define HIDDEN  true
-#endif
-
 // Wifi Range extender NAPT
 #include <ESP8266WiFi.h>
 #include <lwip/napt.h>
@@ -66,7 +60,7 @@ void handleHttpRoot() {
            "<html>\
   <head>\
     <meta http-equiv='refresh' content='5'/>\
-    <title>ESP8266 - Range Extender</title>\
+    <title>ESP8266 - WiFi Range Extender</title>\
     <style>\
       body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; }\
     </style>\

@@ -1,4 +1,4 @@
-// Wifi Range Extender (NAPT with JSON API)
+// ESP8266 - Wifi Range Extender (NAPT with JSON API)
 // Based on Range Extender NAPT
 // - https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/RangeExtender-NAPT/RangeExtender-NAPT.ino
 //
@@ -13,6 +13,7 @@
 
 // Wifi Range extender NAPT
 #include <ESP8266WiFi.h>
+
 #include <lwip/napt.h>
 #include <lwip/dns.h>
 // #include <dhcpserver.h>
@@ -21,7 +22,7 @@
 #include <ESP8266LLMNR.h>
 #include <ESP8266WebServer.h>
 
-// ArduinoJSON Lib
+// Arduino_JSON Lib
 #include <ArduinoJson.h>
 
 #define NAPT 1000
@@ -45,6 +46,7 @@ void dump(int netif_idx, const char* data, size_t len, int out, int success) {
 #endif
 // Webserver on Port 80
 ESP8266WebServer server(80);
+
 // JSON data buffer
 StaticJsonDocument<5000> jsonDocument;
 char buffer[5000];
@@ -146,6 +148,8 @@ void setup() {
   phy_capture = dump;
 #endif
   connectToWifi();
+
+  // setup Web Server
   startWebServer();
 }
 
@@ -243,25 +247,27 @@ void startWebServer() {
   Serial.println("HTTP server started");
 }
 
-char* getEncryptionType(int t) {
-  // read the encryption type and return the name:
-  char *type;
+const char* getEncryptionType(int t) {
+  const char* type;
   switch (t) {
-  case ENC_TYPE_WEP:
-    type = "WEP";
-  case ENC_TYPE_TKIP:
-    type = "WPA";
-  case ENC_TYPE_CCMP:
-    type = "WPA2";
-  case ENC_TYPE_NONE:
-    type = "None";
-  case ENC_TYPE_AUTO:
-    type = "Auto";
+    case ENC_TYPE_WEP:
+      type = "WEP"; break;
+    case ENC_TYPE_TKIP:
+      type = "WPA"; break;
+    case ENC_TYPE_CCMP:
+      type = "WPA2"; break;
+    case ENC_TYPE_NONE:
+      type = "None"; break;
+    case ENC_TYPE_AUTO:
+      type = "Auto"; break;
+    default:
+      type = "Unknown"; break;
   }
   return type;
 }
 
-void createJson(char *tag, float value, char *unit) {  
+
+void createJson(const char *tag, const float value, const char *unit) {  
   jsonDocument.clear();  
   jsonDocument["type"] = tag;
   jsonDocument["value"] = value;
@@ -269,7 +275,7 @@ void createJson(char *tag, float value, char *unit) {
   serializeJson(jsonDocument, buffer);
 }
 
-void addJsonObj(char *tag, char *value, char *unit) {
+void addJsonObj(const char *tag, const char *value, const char *unit) {
   JsonObject obj = jsonDocument.createNestedObject();
   obj["type"] = tag;
   obj["value"] = value;
@@ -277,7 +283,7 @@ void addJsonObj(char *tag, char *value, char *unit) {
   serializeJson(jsonDocument, buffer);
 }
 
-void addJsonObj(String ssid, int rsid, char *enc) {
+void addJsonObj(const String ssid, const int rsid, const char *enc) {
   JsonObject obj = jsonDocument.createNestedObject();
   obj["ssid"] = ssid;
   obj["dBm"] = rsid;
@@ -285,7 +291,7 @@ void addJsonObj(String ssid, int rsid, char *enc) {
   serializeJson(jsonDocument, buffer);
 }
 
-void addJsonObj(char *tag, float value, char *unit) {
+void addJsonObj(const char *tag, const float value, const char *unit) {
   JsonObject obj = jsonDocument.createNestedObject();
   obj["type"] = tag;
   obj["value"] = value;

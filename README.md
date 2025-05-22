@@ -1,8 +1,10 @@
-# WiFi Range Extender
+# ESP8266 - WiFi Range Extender
 
 This Arduino project extends your WiFi range and includes a JSON API for control or diagnostics.
 
 Based on https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/RangeExtender-NAPT/RangeExtender-NAPT.ino
+
+Using ESP-12E / ESP-12F / NodeMCU With Arduino IDE
 
 ## 🔒 Secure Your Credentials
 
@@ -38,7 +40,11 @@ To avoid committing personal WiFi credentials, we use a `secrets.h` file that is
 
 4. **Compile and Upload**
 
-   Open `WifiRangeExtender.ino` in the Arduino IDE and upload it to your board.
+This article will explain how to prepare your Arduino IDE to upload sketches into the ESP8266 microcontroller and connect to an ESP-12E / ESP-12F board over USB.
+
+- http://arduino.esp8266.com/stable/package_esp8266com_index.json
+- Install Arduino_JSON in Library Manager
+- Open `WifiRangeExtender.ino` in the Arduino IDE and upload it to your board.
 
 ## 📁 File Overview
 

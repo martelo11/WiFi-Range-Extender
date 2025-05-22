@@ -53,6 +53,5 @@ This repo includes `.gitignore` entries to prevent `secrets.h` from being accide
 
 ## 📄 License
 
+ LGPL
 
-
----

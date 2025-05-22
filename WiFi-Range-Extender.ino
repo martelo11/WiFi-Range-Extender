@@ -1,11 +1,9 @@
-// Wifi Range Extender NAPT with Json API
+// Wifi Range Extender (NAPT with JSON API)
 // Based on Range Extender NAPT
 // - https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266WiFi/examples/RangeExtender-NAPT/RangeExtender-NAPT.ino
+//
 // WiFi Examples see https://github.com/esp8266/Arduino/tree/master/libraries/ESP8266WiFi/examples
-
-// MGW FritzBox 7490
-// martelo 02.07.2020
-// see https://www.survivingwithandroid.com/esp32-rest-api-esp32-api-server/
+// Also see https://www.survivingwithandroid.com/esp32-rest-api-esp32-api-server/
 
 #if LWIP_FEATURES && !LWIP_IPV6
 

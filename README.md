@@ -1,4 +1,4 @@
-# WiFi Range Extender – NAPT + JSON API (Arduino Project)
+# WiFi Range Extender
 
 This Arduino project extends your WiFi range and includes a JSON API for control or diagnostics.
 
@@ -13,8 +13,8 @@ To avoid committing personal WiFi credentials, we use a `secrets.h` file that is
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/martelo11/WiFi-Range-Extender.git
+   cd WiFi-Range-Extender
    ```
 
 2. **Create Your `secrets.h` File**
@@ -38,11 +38,11 @@ To avoid committing personal WiFi credentials, we use a `secrets.h` file that is
 
 4. **Compile and Upload**
 
-   Open `WifiRangeExtender-NAPT-JSON-API.ino` in the Arduino IDE and upload it to your board.
+   Open `WifiRangeExtender.ino` in the Arduino IDE and upload it to your board.
 
 ## 📁 File Overview
 
-- `WifiRangeExtender-NAPT-JSON-API.ino` – Main sketch.
+- `WifiRangeExtender.ino` – Main sketch.
 - `secrets.example.h` – Template for secrets file.
 - `secrets.h` – Your personal credentials (not tracked by Git).
 - `init_secrets.sh` – Shell script to auto-generate `secrets.h`.
@@ -53,11 +53,6 @@ This repo includes `.gitignore` entries to prevent `secrets.h` from being accide
 
 ## 📄 License
 
-MIT or your preferred license here.
 
----
-
-Feel free to contribute or open issues!
-```
 
 ---
